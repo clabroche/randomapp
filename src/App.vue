@@ -1,29 +1,55 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="banner" @click="clickBanner()">Randoms</div>
+    <div class="router">
+      <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    clickBanner() {
+      console.log('lkj')
+      this.$router.push({name: 'randoms'})
+    }
+  },
+}
+</script>
+
 <style lang="scss">
+body{
+  margin: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+
+  * {
+    box-sizing: border-box;
   }
-}
+</style>
+
+<style scoped lang="scss">
+  .banner {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #85a9b7;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+    color:white;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  .router {
+    overflow:auto;
+  }
 </style>
