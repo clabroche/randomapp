@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button @click="$router.push({name: 'dice'})" class="dice"><i class="fas fa-dice"></i></button>
     <div class="input">
       <input type="text" placeholder="Nom du jeu à créer..." v-model="createName">
       <button :disabled="!createName" @click="create()">
@@ -79,5 +80,21 @@ export default {
     width:100%;
     padding: 5px;
   }
+}
+.dice {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    border: none;
+    box-shadow: 1px 2px 5px 1px lightgrey;
+    color: white;
+    background-color: #85a9b7;
+    font-weight: bold;
+    i {
+      font-size: 2em;
+    }
 }
 </style>

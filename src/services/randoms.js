@@ -8,9 +8,8 @@ const randoms = {
     }
   },
   all() {
-    return Array(localStorage.length).fill().map((_, i) => {
+    return Array(localStorage.length).fill(null).map((_, i) => {
       const key = localStorage.key(i)
-      console.log(key)
       return key.includes(this.prefix)
         ? this.get(key)
         : null

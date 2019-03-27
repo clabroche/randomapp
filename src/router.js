@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Randoms from './components/Randoms.vue'
 import Random from './components/Random.vue'
+import Dice from './components/Dice.vue'
 
 Vue.use(Router)
 
@@ -17,6 +18,11 @@ export default new Router({
       path: '/randoms',
       name: 'randoms',
       component: Randoms
+    },
+    {
+      path: '/dice',
+      name: 'dice',
+      component: Dice
     },
     {
       path: '/randoms/:id',

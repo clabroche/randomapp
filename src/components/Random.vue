@@ -45,7 +45,7 @@ export default {
     generate() {
       this.generatedWord = ''
       this.$forceUpdate()
-      this.$nextTick(_ => {
+      this.$nextTick(() => {
         const index = Math.floor(+(Math.random() * this.random.words.length))
         this.generatedWord = this.random.words[index]
       })
@@ -74,7 +74,7 @@ export default {
 .random-container {
   position: relative;
   height: 200px;
-  width: calc(100% - 20px);
+  width: 100%;
   margin: auto;
   display: flex;
   justify-content: center;

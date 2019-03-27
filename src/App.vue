@@ -11,7 +11,6 @@
 export default {
   methods: {
     clickBanner() {
-      console.log('lkj')
       this.$router.push({name: 'randoms'})
     }
   },
@@ -43,7 +42,6 @@ body{
     justify-content: center;
     align-items: center;
     background-color: #85a9b7;
-    margin-bottom: 10px;
     flex-shrink: 0;
     color:white;
     font-weight: bold;
@@ -51,5 +49,6 @@ body{
   }
   .router {
     overflow:auto;
+    height: 100%;
   }
 </style>
