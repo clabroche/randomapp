@@ -39,12 +39,15 @@ jobs:
         keyPassword: ${{ secrets.KEY_PASSWORD }}
 
     - name: Move signed apk
-      run: mv ${SIGNED_RELEASE_FILE} server/public/rhea.apk
+      run: mv ${SIGNED_RELEASE_FILE} dist/randomapp.apk
+
+    - name: Remove useless artifact
+      run: rm dist/bundled
 
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: clabroche/docker-registry/rhea
+        name: clabroche/docker-registry/randomapp
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
         registry: docker.pkg.github.com
