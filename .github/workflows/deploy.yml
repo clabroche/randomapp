@@ -26,9 +26,6 @@ jobs:
     - name: Build dependencies
       run: npm run build
 
-    - name: Sync capacitor
-      run: npx cap sync
-
     - name: Build apk
       run: npm run cordova-build-android
 
