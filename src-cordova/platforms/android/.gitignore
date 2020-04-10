@@ -13,5 +13,4 @@ out
 # Gradle builds
 /build
 app/build
-CordovaLib/build
 app/src/main/assets/www
