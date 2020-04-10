@@ -26,16 +26,13 @@ jobs:
     - name: Build dependencies
       run: npm run build
 
-    - name: Sync capacitor
-      run: npx cap sync
-
     - name: Build apk
       run: npm run capacitor:build
 
     - name: Android apksigner
       uses: r0adkll/sign-android-release@v1
       with:
-        releaseDirectory: src-cordova/platforms/android/app/build/outputs/apk/release/
+        releaseDirectory: android/app/build/outputs/apk/release
         signingKeyBase64: ${{ secrets.KEY_STORE_FILE }}
         alias: ${{ secrets.KEY_STORE_ALIAS }}
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
