@@ -32,7 +32,7 @@ jobs:
     - name: Android apksigner
       uses: r0adkll/sign-android-release@v1
       with:
-        releaseDirectory: src-cordova/app/build/outputs/apk/release
+        releaseDirectory: src-cordova/platforms/android/app/build/outputs/apk/release/
         signingKeyBase64: ${{ secrets.KEY_STORE_FILE }}
         alias: ${{ secrets.KEY_STORE_ALIAS }}
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
