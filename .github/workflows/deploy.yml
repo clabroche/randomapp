@@ -42,7 +42,7 @@ jobs:
       run: mv ${SIGNED_RELEASE_FILE} dist/randomapp.apk
 
     - name: Remove useless artifact
-      run: rm dist/bundled
+      run: rm -r dist/bundled
 
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
