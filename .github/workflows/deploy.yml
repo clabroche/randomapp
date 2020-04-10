@@ -26,8 +26,11 @@ jobs:
     - name: Build dependencies
       run: npm run build
 
+    - name: Sync capacitor
+      run: npx cap sync
+
     - name: Build apk
-      run: npm run cordova-build-android
+      run: npm run capacitor:build
 
     - name: Android apksigner
       uses: r0adkll/sign-android-release@v1
@@ -39,12 +42,12 @@ jobs:
         keyPassword: ${{ secrets.KEY_PASSWORD }}
 
     - name: Move signed apk
-      run: mv ${SIGNED_RELEASE_FILE} server/public/randomapp.apk
+      run: mv ${SIGNED_RELEASE_FILE} server/public/rhea.apk
 
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: clabroche/docker-registry/randomapp
+        name: clabroche/docker-registry/rhea
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
         registry: docker.pkg.github.com
