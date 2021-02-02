@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 const randoms = {
   prefix: 'word-',
   get(id) {
@@ -20,10 +21,13 @@ const randoms = {
    * @param {Object} random random object to save
    * @param {String} random.id id of the random object
    * @param {String} random.name id of the random object
+   * @param {String} random.name id of the random object
+   * @param {String} random.date isostring
    * @param {Array.<String>} random.words Contain all words
    */
   save(random) {
     random.id = this.prefix + (Math.random() * 100000).toFixed(0)
+    random.date = dayjs().toISOString()
     if (!random.words) random.words = []
     this.update(random)
     return random

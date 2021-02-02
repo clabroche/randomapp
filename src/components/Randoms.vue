@@ -8,11 +8,11 @@
       </button>
     </div>
     <ul class="randoms">
-      <li v-for="random of randoms" :key="random.id" class="random" @click="goTo(random)">
+      <li v-for="random of randomsSorted" :key="random.id" class="random" @click="goTo(random)">
         <div>
           {{random.name}}
         </div>
-        <button @click="deleteRandom(random)"><i class="fas fa-times"></i></button>
+        <button @click.stop="deleteRandom(random)"><i class="fas fa-times"></i></button>
       </li>
     </ul>
   </div>
@@ -20,12 +20,18 @@
 
 <script>
 import randoms from '../services/randoms.js'
+import sort from 'fast-sort'
 export default {
   name: 'Randoms',
   data() {
     return {
       randoms: [],
       createName: ''
+    }
+  },
+  computed: {
+    randomsSorted() {
+      return sort(this.randoms).desc(random => random.date)
     }
   },
   mounted() {
